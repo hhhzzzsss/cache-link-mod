@@ -4,14 +4,15 @@ GODOT_URL=https://downloads.godotengine.org/?version=${GODOT_VERSION}&flavor=sta
 # GODOT_ZIP=build/godot.zip
 # GODOT_DIR=build/godot
 # GODOT_PATH=${GODOT_DIR}/Godot_v${GODOT_VERSION}-stable_linux.x86_64
-PCK_PATH=build/cache-link-${RELEASE_VERSION}.pck
+PCK_PATH=dist/cache-link-${RELEASE_VERSION}.pck
+ZIP_PATH=dist/cache-link-${RELEASE_VERSION}.zip
 
-.PHONY: all clean copy_src copy_export deploy
+.PHONY: all clean copy_src dist deploy
 
 all: copy_src deploy
 
 clean:
-	rm -rf ./build
+	rm -rf ./dist
 
 copy_src:
 	rm -rf src
@@ -22,16 +23,15 @@ copy_src:
 		cp -r "${PROJECT_PATH}/$$item" "src/$$item"; \
 	done < export-list.txt
 
-copy_export: build
+dist:
+	mkdir -p dist
 	cp ${PROJECT_PATH}/cache-link.pck ${PCK_PATH}
+	zip -j ${ZIP_PATH} ${PCK_PATH}
 
-deploy: copy_export
+deploy: dist
 	mkdir -p "${GAME_PATH}/mods"
 	rm -f "${GAME_PATH}/mods"/cache-link-*.pck
 	cp ${PCK_PATH} "${GAME_PATH}/mods/"
-
-build:
-	mkdir -p build
 
 # install_godot: ${GODOT_PATH}
 
