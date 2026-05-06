@@ -1,6 +1,6 @@
 # Cache Link - A Mod for Lucid Blocks
 
-A mod that automatically links cache cubes together to form a shared inventory.
+A mod that automatically links adjacent cache cubes together to form a shared inventory.
 
 Clicking on a cache cube opens an searchable interface that allows you to view and access the contents of all linked cache cubes.
 This interface behaves similarly to storage terminals from popular Minecraft storage mods like AE2 or Refined storage.
