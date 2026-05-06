@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bu3utfiovwsqh"]
+
+[ext_resource type="Material" uid="uid://dq00uhq0pwuh8" path="res://main/ui/menu/game_menu/cache_cube/cache_cube_outline_material.tres" id="1_gycoi"]
+[ext_resource type="StyleBox" uid="uid://dc48smtibrfe3" path="res://main/ui/menu/game_menu/cache_cube/cache_cube_panel.tres" id="2_0yxgv"]
+
+[node name="CacheInterfaceWidget" type="VBoxContainer" unique_id=373987001]
+
+[node name="CacheInterfaceLabel" type="Label" parent="." unique_id=2099816741]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "cache interface"
+
+[node name="CacheInterfacePanel" type="PanelContainer" parent="." unique_id=1670205210]
+material = ExtResource("1_gycoi")
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("2_0yxgv")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CacheInterfacePanel" unique_id=1343689475]
+layout_mode = 2

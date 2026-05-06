@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c41osebygjqdu"]
+
+[ext_resource type="Script" uid="uid://bjwyc7wrn3s6s" path="res://cache_link/cache_interface_slot.gd" id="1_jt4rq"]
+[ext_resource type="Texture2D" uid="uid://byvl2bqee0b0" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/textures/slot.png" id="2_fwd1k"]
+[ext_resource type="PackedScene" uid="uid://bl8u38r7o7vvo" path="res://main/ui/menu/game_menu/inventory_widget/item_popup/item_popup.tscn" id="2_n0pop"]
+[ext_resource type="Texture2D" uid="uid://cmp22x2h0ndks" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/textures/slot_hover.png" id="3_0v4o6"]
+[ext_resource type="AudioStream" uid="uid://yyjb56n2irva" path="res://main/items/dropped_item/sounds/pop1.wav" id="3_fwd1k"]
+[ext_resource type="AudioStream" uid="uid://b7mka2xdkrhbr" path="res://main/items/dropped_item/sounds/pop4.wav" id="4_0v4o6"]
+[ext_resource type="PackedScene" uid="uid://c7ppvdhmu51i5" path="res://cache_link/dense_item_widget.tscn" id="4_iduxm"]
+[ext_resource type="AudioStream" uid="uid://coeln5fpcwdtv" path="res://main/items/dropped_item/sounds/pop2.wav" id="5_iduxm"]
+[ext_resource type="AudioStream" uid="uid://dqted8a666tef" path="res://main/items/dropped_item/sounds/pop3.wav" id="6_bv3ma"]
+[ext_resource type="AudioStream" uid="uid://blnpcio6hujgq" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/woosh_1.wav" id="7_g6yib"]
+[ext_resource type="AudioStream" uid="uid://n032te86r5bk" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/woosh_2.wav" id="8_tfh6a"]
+[ext_resource type="AudioStream" uid="uid://b8s8cndtl0ihj" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/drain_1.wav" id="9_ssl0b"]
+[ext_resource type="AudioStream" uid="uid://bb6xe714lx6rs" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/drain_2.wav" id="10_tsbwx"]
+[ext_resource type="AudioStream" uid="uid://cxu5kcnefotrh" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/drain_3.wav" id="11_uy54p"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6jhfo"]
+random_pitch = 1.0174797
+streams_count = 2
+stream_0/stream = ExtResource("3_fwd1k")
+stream_1/stream = ExtResource("4_0v4o6")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x3y11"]
+random_pitch = 1.0174797
+streams_count = 2
+stream_0/stream = ExtResource("5_iduxm")
+stream_1/stream = ExtResource("6_bv3ma")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wrdlb"]
+random_pitch = 1.0233738
+streams_count = 2
+stream_0/stream = ExtResource("7_g6yib")
+stream_1/stream = ExtResource("8_tfh6a")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wev4q"]
+random_pitch = 1.0472941
+streams_count = 3
+stream_0/stream = ExtResource("9_ssl0b")
+stream_1/stream = ExtResource("10_tsbwx")
+stream_2/stream = ExtResource("11_uy54p")
+
+[node name="CacheInterfaceSlot" type="TextureRect" unique_id=440439697]
+offset_right = 22.0
+offset_bottom = 22.0
+texture = ExtResource("2_fwd1k")
+script = ExtResource("1_jt4rq")
+normal_texture = ExtResource("2_fwd1k")
+hover_texture = ExtResource("3_0v4o6")
+item_widget_scene = ExtResource("4_iduxm")
+
+[node name="ItemPopup" parent="." unique_id=760584362 instance=ExtResource("2_n0pop")]
+unique_name_in_owner = true
+visible = false
+top_level = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 3.0
+offset_right = 115.0
+offset_bottom = 12.0
+
+[node name="PickUpSound" type="AudioStreamPlayer" parent="." unique_id=1039705622]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_6jhfo")
+volume_db = -28.0
+pitch_scale = 0.7
+bus = &"UI SFX"
+
+[node name="DropSound" type="AudioStreamPlayer" parent="." unique_id=788424495]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_x3y11")
+volume_db = -28.0
+pitch_scale = 0.8
+bus = &"UI SFX"
+
+[node name="TransferSound" type="AudioStreamPlayer" parent="." unique_id=2019303524]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_wrdlb")
+volume_db = -20.0
+pitch_scale = 0.9
+bus = &"UI SFX"
+
+[node name="DrainSound" type="AudioStreamPlayer" parent="." unique_id=1591802476]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_wev4q")
+volume_db = -40.0
+pitch_scale = 1.2
+bus = &"UI SFX"

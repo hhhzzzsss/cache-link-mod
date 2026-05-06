@@ -1,0 +1,6 @@
+cache_link/
+main/world/living_block/cache_cube/cache_cube.gd
+main/world/living_block/cache_cube/cache_cube.gd.uid
+
+project.godot
+export_presets.cfg

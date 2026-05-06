@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://buaokvh6rsan0"]
+
+[ext_resource type="Material" uid="uid://dq00uhq0pwuh8" path="res://main/ui/menu/game_menu/cache_cube/cache_cube_outline_material.tres" id="1_gycoi"]
+[ext_resource type="Script" uid="uid://f6x80dr1hxb7" path="res://cache_link/cache_interface_widget.gd" id="1_yx88u"]
+[ext_resource type="StyleBox" uid="uid://dc48smtibrfe3" path="res://main/ui/menu/game_menu/cache_cube/cache_cube_panel.tres" id="2_0yxgv"]
+[ext_resource type="PackedScene" uid="uid://c41osebygjqdu" path="res://cache_link/cache_interface_slot.tscn" id="2_sol2u"]
+[ext_resource type="AudioStream" uid="uid://yyjb56n2irva" path="res://main/items/dropped_item/sounds/pop1.wav" id="4_sol2u"]
+[ext_resource type="AudioStream" uid="uid://b7mka2xdkrhbr" path="res://main/items/dropped_item/sounds/pop4.wav" id="5_dnbiu"]
+[ext_resource type="AudioStream" uid="uid://coeln5fpcwdtv" path="res://main/items/dropped_item/sounds/pop2.wav" id="6_bklby"]
+[ext_resource type="AudioStream" uid="uid://dqted8a666tef" path="res://main/items/dropped_item/sounds/pop3.wav" id="7_blq75"]
+[ext_resource type="AudioStream" uid="uid://blnpcio6hujgq" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/woosh_1.wav" id="8_wgyx7"]
+[ext_resource type="AudioStream" uid="uid://n032te86r5bk" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/woosh_2.wav" id="9_euxy8"]
+[ext_resource type="AudioStream" uid="uid://b8s8cndtl0ihj" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/drain_1.wav" id="10_3nr4r"]
+[ext_resource type="AudioStream" uid="uid://bb6xe714lx6rs" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/drain_2.wav" id="11_80w3r"]
+[ext_resource type="AudioStream" uid="uid://cxu5kcnefotrh" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/drain_3.wav" id="12_v2ocg"]
+[ext_resource type="AudioStream" uid="uid://7oqyhsdu7ics" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/magic_2.wav" id="13_57v3n"]
+[ext_resource type="AudioStream" uid="uid://cno4j25shdaqr" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/magic_1.wav" id="14_boc8d"]
+[ext_resource type="AudioStream" uid="uid://ber4ts3vd3q5y" path="res://main/ui/menu/game_menu/inventory_widget/inventory_slot/sounds/magic_3.wav" id="15_kta3o"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7i2sl"]
+random_pitch = 1.0174797
+streams_count = 2
+stream_0/stream = ExtResource("4_sol2u")
+stream_1/stream = ExtResource("5_dnbiu")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m66cp"]
+random_pitch = 1.0174797
+streams_count = 2
+stream_0/stream = ExtResource("6_bklby")
+stream_1/stream = ExtResource("7_blq75")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bfcfp"]
+random_pitch = 1.0233738
+streams_count = 2
+stream_0/stream = ExtResource("8_wgyx7")
+stream_1/stream = ExtResource("9_euxy8")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kyiut"]
+random_pitch = 1.0472941
+streams_count = 3
+stream_0/stream = ExtResource("10_3nr4r")
+stream_1/stream = ExtResource("11_80w3r")
+stream_2/stream = ExtResource("12_v2ocg")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7eskk"]
+random_pitch = 1.0472941
+streams_count = 3
+stream_0/stream = ExtResource("13_57v3n")
+stream_1/stream = ExtResource("14_boc8d")
+stream_2/stream = ExtResource("15_kta3o")
+
+[node name="CacheInterface" type="VBoxContainer" unique_id=373987001]
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_yx88u")
+inferface_slot_scene = ExtResource("2_sol2u")
+normal_slot_label_color = Color(1, 1, 1, 1)
+warning_slot_label_color = Color(1, 0.85, 0.39999998, 1)
+full_slot_label_color = Color(1, 0.4375, 0.25, 1)
+
+[node name="CacheInterfaceLabel" type="Label" parent="." unique_id=2099816741]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "cache interface"
+
+[node name="CacheInterfacePanel" type="PanelContainer" parent="." unique_id=1801435431]
+material = ExtResource("1_gycoi")
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_0yxgv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CacheInterfacePanel" unique_id=63613840]
+layout_mode = 2
+
+[node name="SearchBar" type="LineEdit" parent="CacheInterfacePanel/VBoxContainer" unique_id=1230563020]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+placeholder_text = "search"
+context_menu_enabled = false
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CacheInterfacePanel/VBoxContainer" unique_id=296973523]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SlotGrid" type="GridContainer" parent="CacheInterfacePanel/VBoxContainer/HBoxContainer" unique_id=759874308]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="ScrollBar" type="VScrollBar" parent="CacheInterfacePanel/VBoxContainer/HBoxContainer" unique_id=1400615833]
+unique_name_in_owner = true
+layout_mode = 2
+step = 1.0
+page = 3.0
+rounded = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1755945311]
+layout_mode = 2
+
+[node name="ShowIndividualButton" type="Button" parent="HBoxContainer" unique_id=1513802414]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "view single"
+
+[node name="SlotLabel" type="Label" parent="HBoxContainer" unique_id=1139079842]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0/21 slots used"
+
+[node name="PickUpSound" type="AudioStreamPlayer" parent="." unique_id=1389628341]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_7i2sl")
+volume_db = -28.0
+pitch_scale = 0.7
+bus = &"UI SFX"
+
+[node name="DropSound" type="AudioStreamPlayer" parent="." unique_id=988450827]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_m66cp")
+volume_db = -28.0
+pitch_scale = 0.8
+bus = &"UI SFX"
+
+[node name="TransferSound" type="AudioStreamPlayer" parent="." unique_id=923783015]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_bfcfp")
+volume_db = -20.0
+pitch_scale = 0.9
+bus = &"UI SFX"
+
+[node name="DrainSound" type="AudioStreamPlayer" parent="." unique_id=1740123203]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_kyiut")
+volume_db = -40.0
+pitch_scale = 1.2
+bus = &"UI SFX"
+
+[node name="MagicSound" type="AudioStreamPlayer" parent="." unique_id=1488407668]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_7eskk")
+volume_db = -40.0
+pitch_scale = 1.2
+bus = &"UI SFX"
