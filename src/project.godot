@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="lucid blocks"
-config/version="2.9.3"
+config/version="3.0.4"
 run/main_scene="res://main/main.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.6", "Double Precision", "Forward Plus")
@@ -37,6 +37,7 @@ BlockSoundMap="*res://main/autoload/block_sound_map.gd"
 SpatialMath="*res://main/utils/spatial_math.gd"
 MouseHandler="*res://main/ui/mouse/mouse_handler.gd"
 SettingsManager="*uid://dv7o4c511l0up"
+GuardChecker="*uid://1mx8jihsxf8w"
 
 [debug]
 
